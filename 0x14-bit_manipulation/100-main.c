@@ -1,29 +1,18 @@
 #include <stdio.h>
 #include "main.h"
-/**
- * main - Entry point of the program
- *
- * Description:
- * This function is the entry point of the program. It demonstrates how to
- * check whether the machine's architecture is little or big endian using
- * the get_endianness function and displays the result.
- *
- * Return: Always 0 (Success)
- */
 
 int main(void)
 {
-	int n;
+    int n;
 
-	n = get_endianness();
-	if (n != 0)
-	{
-		printf("Little Endian\n");
-	}
-	else
-	{
-		printf("Big Endian\n");
-	}
-	return (0);
+    n = get_endianness();
+    if (n != 0)
+    {
+        printf("Little Endian\n");
+    }
+    else
+    {
+        printf("Big Endian\n");
+    }
+    return (0);
 }
-
