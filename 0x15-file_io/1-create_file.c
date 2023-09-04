@@ -4,7 +4,7 @@
  * @filename: A ptr to the name of the file that needs to be created.
  * @text_content: A ptr to a string to be written in the file.
  *
- * Rtrn: If the func. fails - -1.
+ * Return: If the func. fails - -1.
  *       Else - 1.
  */
 int create_file(const char *filename, char *text_content)
