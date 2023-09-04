@@ -7,29 +7,30 @@
  * Return: Returns w- the actual num. of bytes read and printed.
  *         0 when the funcs. fails or if the filename is defined as NULL.
  */
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-    char *buf;
     ssize_t fd;
-    ssize_t w;
     ssize_t t;
+    ssize_t w;
+    char *buf;
+
+    buf = malloc(sizeof(char) * letters);
+    if (buf == NULL)
+    {
+        return (-1); 
+    }
 
     fd = open(filename, O_RDONLY);
     if (fd == -1)
-        return (-1);
-
-    buf = malloc(sizeof(char) * letters);
-    if (buf == NULL) {
-        close(fd);
-        return (-1);
+    {
+        free(buf);
+        return (0);
     }
 
     t = read(fd, buf, letters);
-    if (t == -1) {
+    if (t == -1)
+    {
         free(buf);
         close(fd);
         return (-1);
@@ -42,5 +43,4 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
     return (w);
 }
-
 
